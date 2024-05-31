@@ -2,7 +2,7 @@
 #на обычных работников и администраторов. У каждого сотрудника есть уникальный идентификатор (ID), имя и
 #уровень доступа. Администраторы, помимо обычных данных пользователей, имеют дополнительный
 #уровень доступа и могут добавлять или удалять пользователя из системы.
-class User:
+class User():
     def __init__(self, user_id, name, access_level='user'):
         self.__user_id = user_id
         self.__name = name
@@ -25,9 +25,11 @@ class Admin(User):
 
     def add_user(self, user):
         self.__users_list.append(user)
+        print(f'Пользователь {user.get_name()} добавлен.')
 
     def remove_user(self, user):
         self.__users_list.remove(user)
+        print(f'Пользователь {user.get_name()} удален.')
 
     def get_users_list(self):
         return self.__users_list
